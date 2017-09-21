@@ -9,6 +9,7 @@ metadata:
   dependencies: ['docker.io/ansibleplaybookbundle/mediawiki123:latest']
   displayName: Mediawiki (APB)
   console.openshift.io/iconClass: icon-mediawiki
+  providerDisplayName: "Red Hat, Inc."
 plans:
   - name: default
     description: An APB that deploys MediaWiki
