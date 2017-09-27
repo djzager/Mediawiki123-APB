@@ -1,6 +1,6 @@
 FROM ansibleplaybookbundle/apb-base:nightly
 
-LABEL "com.redhat.apb.version"="0.1.0"
+LABEL "com.redhat.apb.version"="1.0"
 LABEL "com.redhat.apb.spec"=\
 "bmFtZTogbWVkaWF3aWtpMTIzLWFwYgppbWFnZTogYW5zaWJsZXBsYXlib29rYnVuZGxlL21lZGlh\
 d2lraTEyMy1hcGIKZGVzY3JpcHRpb246IE1lZGlhd2lraTEyMyBhcGIgaW1wbGVtZW50YXRpb24K\
