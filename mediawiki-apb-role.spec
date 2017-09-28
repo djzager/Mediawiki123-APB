@@ -4,15 +4,15 @@
 %define build_timestamp %{nil}
 %endif
 
-Name: mediawiki-apb-role
+Name: 		mediawiki-apb-role
 Version:	1.0.3
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
 License:	ASL 2.0
-URL:		https://github.com/fusor/apb-examples
-Source0:	https://github.com/fusor/apb-examples/archive/%{name}-%{version}.tar.gz
-BuildArch:  noarch
+URL:		https://github.com/ansibleplaybookbundle/Mediawiki123-APB
+Source0:	https://github.com/ansibleplaybookbundle/Mediawiki123-APB/archive/%{name}-%{version}.tar.gz
+BuildArch:  	noarch
 
 %description
 %{summary}
