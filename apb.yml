@@ -1,3 +1,4 @@
+version: 1.0
 name: mediawiki123-apb
 image: ansibleplaybookbundle/mediawiki123-apb
 description: Mediawiki123 apb implementation
