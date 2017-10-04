@@ -1,10 +1,9 @@
 version: 1.0
 name: mediawiki123-apb
-image: ansibleplaybookbundle/mediawiki123-apb
 description: Mediawiki123 apb implementation
 bindable: False
 async: optional
-metadata: 
+metadata:
   documentationUrl: https://www.mediawiki.org/wiki/Documentation
   longDescription: An apb that deploys Mediawiki 1.23
   dependencies: ['docker.io/ansibleplaybookbundle/mediawiki123:latest']
