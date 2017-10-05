@@ -29,6 +29,7 @@ plans:
         type: string
         title: Mediawiki Site Name
         required: True
+        updatable: True
       - name: mediawiki_site_lang
         default: en
         type: string
