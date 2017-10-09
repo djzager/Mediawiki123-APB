@@ -1,4 +1,4 @@
-provision: ansibleplaybookbundle/mediawiki123-apb
+provision: mediawiki123-apb
 verify: rthallisey/service-broker-ci/wait-for-resource.sh create pod mediawiki
 
 provision: rthallisey/service-broker-ci/postgresql
@@ -17,8 +17,9 @@ verify: rthallisey/service-broker-ci/verify-bind.sh mediawiki123
 unbind: postgresql | mediawiki123-apb
 verify: rthallisey/service-broker-ci/wait-for-resource.sh delete bindings.v1alpha1.servicecatalog.k8s.io binding
 
-deprovision: ansibleplaybookbundle/mediawiki123-apb
-verify: rthallisey/service-broker-ci/wait-for-resource.sh delete pod mediawiki
+deprovision: mediawiki123-apb
+verify: rthallisey/service-broker-ci/wait-for-resource.sh delete instance mediawiki
 
 deprovision: rthallisey/service-broker-ci/postgresql
-verify: rthallisey/service-broker-ci/wait-for-resource.sh delete pod postgresql
+verify: rthallisey/service-broker-ci/wait-for-resource.sh delete instance postgresql
+
