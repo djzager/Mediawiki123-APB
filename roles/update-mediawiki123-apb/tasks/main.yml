@@ -39,7 +39,7 @@
         value: "{{ mediawiki_admin_pass }}"
       - name: MEDIAWIKI_SITE_SERVER
         value: '{{ route.route.spec.host }}'
-      image: docker.io/jmontleon/mediawiki123:update
+      image: docker.io/ansibleplaybookbundle/mediawiki123:latest
       name: mediawiki123
       ports:
       - container_port: 8080
