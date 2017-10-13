@@ -16,12 +16,14 @@
       namespace: '{{ namespace }}'
       replicas: 0
       state: present
-  - k8s_v1_replication_controller:
-      name: mediawiki123-1
-      namespace: '{{ namespace }}'
-      state: absent
+  - pause:
+      seconds: 10
   - openshift_v1_deployment_config:
       name: mediawiki123
+      namespace: '{{ namespace }}'
+      state: absent
+  - k8s_v1_replication_controller:
+      name: mediawiki123-1
       namespace: '{{ namespace }}'
       state: absent
   - k8s_v1_service:
