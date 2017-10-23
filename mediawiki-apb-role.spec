@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.0.6
+Version:	1.0.7
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -31,6 +31,10 @@ mv roles %{buildroot}/opt/ansible/roles
 /opt/ansible/roles
 
 %changelog
+* Mon Oct 23 2017 Jason Montleon <jmontleo@redhat.com> 1.0.7-1
+- Bug 1495503 - Wait for deployment controller to scale down before deleting rc
+  (dymurray@redhat.com)
+
 * Tue Oct 10 2017 Jason Montleon <jmontleo@redhat.com> 1.0.6-1
 - Bug 1500364 - Update role with correct images (david.j.zager@gmail.com)
 
