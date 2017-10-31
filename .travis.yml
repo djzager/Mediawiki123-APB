@@ -13,4 +13,3 @@ before_script:
   - go get github.com/rthallisey/service-broker-ci/cmd/ci
 script:
   - ci
-  - curl -s https://raw.githubusercontent.com/rthallisey/ansible-service-broker/new-ci-framework/scripts/broker-ci/gather-logs.sh | bash -s
