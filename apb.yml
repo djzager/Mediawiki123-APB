@@ -44,3 +44,4 @@ plans:
         type: string
         title: Mediawiki Admin User Password
         required: True
+        display_type: password
