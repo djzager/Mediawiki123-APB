@@ -1,9 +1,9 @@
-provision: mediawiki123-apb
+provision: mediawiki-apb
 provision: ansibleplaybookbundle/rhscl-postgresql-apb
 
 bind: ansibleplaybookbundle/rhscl-postgresql-apb
 verify: rthallisey/service-broker-ci/verify-mediawiki-postgresql.sh
-unbind: postgresql | mediawiki123-apb
+unbind: postgresql | mediawiki-apb
 
-deprovision: mediawiki123-apb
+deprovision: mediawiki-apb
 deprovision: ansibleplaybookbundle/rhscl-postgresql-apb
