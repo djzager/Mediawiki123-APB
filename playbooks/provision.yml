@@ -5,4 +5,7 @@
   roles:
   - role: ansible.kubernetes-modules
     install_python_requirements: no
-  - provision-mediawiki123-apb
+  - mediawiki
+  vars:
+    action: provision
+    cluster: openshift
