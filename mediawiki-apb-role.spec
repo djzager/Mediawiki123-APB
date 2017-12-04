@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.1.0
+Version:	1.1.1
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -31,6 +31,23 @@ mv roles %{buildroot}/opt/ansible/roles
 /opt/ansible/roles
 
 %changelog
+* Mon Dec 04 2017 Jason Montleon <jmontleo@redhat.com> 1.1.1-1
+- updates for repo and container name change (jmontleo@redhat.com)
+- Use the proper git name ansibleplaybookbundle/rhscl-postgresql-apb
+  (rhallise@redhat.com)
+- Add README with travis status (rhallise@redhat.com)
+- bump release (jmontleo@redhat.com)
+- Bug 1508994 - Hide password with display_type: password (cchase@redhat.com)
+- Match the serviceinstance name to the deployment (rhallise@redhat.com)
+- Add a log gathering script to the end of the job (rhallise@redhat.com)
+- Update config.yaml to get 3.7 framework changes (rhallise@redhat.com)
+- Fix templates to work with 3.7 (rhallise@redhat.com)
+- Use the ansible-service-broker script to setup the gate (rhallise@redhat.com)
+- Remove comments in config.yaml (rhallise@redhat.com)
+- Add an empty go file so travis doesn't complain when setting up go
+  (rhallise@redhat.com)
+- Add CI to the mediawiki apb (rhallise@redhat.com)
+
 * Mon Oct 23 2017 Jason Montleon <jmontleo@redhat.com> 1.0.7-1
 - Bug 1495503 - Wait for deployment controller to scale down before deleting rc
   (dymurray@redhat.com)
