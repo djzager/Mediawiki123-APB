@@ -1,6 +1,6 @@
 version: 1.0
-name: mediawiki123-apb
-description: Mediawiki123 apb implementation
+name: mediawiki-apb
+description: Mediawiki apb implementation
 bindable: False
 async: optional
 metadata:
