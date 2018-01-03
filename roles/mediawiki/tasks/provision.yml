@@ -65,7 +65,7 @@
         value: "{{ mediawiki_admin_pass }}"
       - name: MEDIAWIKI_SITE_SERVER
         value: '{{ endpoint.endpoints.subsets[0].addresses[0].ip }}'
-      image: docker.io/ansibleplaybookbundle/mediawiki123:latest
+      image: docker.io/ansibleplaybookbundle/mediawiki:latest
       name: mediawiki123
       ports:
       - container_port: 8080
@@ -107,7 +107,7 @@
         value: "{{ mediawiki_admin_pass }}"
       - name: MEDIAWIKI_SITE_SERVER
         value: '{{ route.route.spec.host }}'
-      image: docker.io/ansibleplaybookbundle/mediawiki123:latest
+      image: docker.io/ansibleplaybookbundle/mediawiki:latest
       name: mediawiki123
       ports:
       - container_port: 8080
