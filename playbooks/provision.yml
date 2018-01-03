@@ -8,4 +8,4 @@
   - mediawiki
   vars:
     action: provision
-    cluster: openshift
+    cluster: kubernetes
