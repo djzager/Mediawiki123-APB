@@ -23,17 +23,20 @@ plans:
         default: mediawiki
         type: string
         title: Mediawiki DB Schema
+        pattern: "^[a-zA-Z_][a-zA-Z0-9_]*$"
         required: True
       - name: mediawiki_site_name
         default: MediaWiki
         type: string
         title: Mediawiki Site Name
+        pattern: "^[a-zA-Z]+$"
         required: True
         updatable: True
       - name: mediawiki_site_lang
         default: en
         type: string
         title: Mediawiki Site Language
+        pattern: "^[a-z]{2,3}$"
         required: True
       - name: mediawiki_admin_user
         default: admin
