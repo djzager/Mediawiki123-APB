@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.1.1
+Version:	1.1.2
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -31,6 +31,12 @@ mv roles %{buildroot}/opt/ansible/roles
 /opt/ansible/roles
 
 %changelog
+* Mon Jan 08 2018 David Zager <david.j.zager@gmail.com> 1.1.2-1
+- Update tito releasers (david.j.zager@gmail.com)
+- Bug 1472226 - Add pattern regex for UI validation (cchase@redhat.com)
+- Use the proper git name ansibleplaybookbundle/rhscl-postgresql-apb
+  (rhallise@redhat.com)
+
 * Mon Dec 04 2017 Jason Montleon <jmontleo@redhat.com> 1.1.1-1
 - updates for repo and container name change (jmontleo@redhat.com)
 - Use the proper git name ansibleplaybookbundle/rhscl-postgresql-apb
