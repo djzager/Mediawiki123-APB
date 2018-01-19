@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.1.3
+Version:	1.1.4
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -31,6 +31,9 @@ mv roles %{buildroot}/opt/ansible/roles
 /opt/ansible/roles
 
 %changelog
+* Fri Jan 19 2018 David Zager <david.j.zager@gmail.com> 1.1.4-1
+- Revert erroneous change to image name (jmontleo@redhat.com)
+
 * Tue Jan 16 2018 David Zager <david.j.zager@gmail.com> 1.1.3-1
 - Use the proper mediawiki image name (rhallise@redhat.com)
 - Few fixes after the update rebase (rhallise@redhat.com)
