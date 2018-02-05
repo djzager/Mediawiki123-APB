@@ -3,5 +3,7 @@
   uri:
     url: "http://{{ route.route.spec.host }}"
     return_content: yes
+  retries: 10
+  delay: 5
   register: webpage
-  failed_when: webpage.status != 200
+  until: webpage.status == 200
