@@ -1,3 +1,4 @@
 ---
 namespace: "{{ lookup('env','NAMESPACE') | default('mediawiki123', true) }}"
+cluster: kubernetes
 mediawiki_volume_size: "1Gi"
