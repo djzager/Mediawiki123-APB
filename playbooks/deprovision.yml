@@ -9,4 +9,3 @@
   vars:
     namespace: mediawiki123-apb
     action: deprovision
-    cluster: openshift
