@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.1.4
+Version:	1.1.5
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -31,6 +31,11 @@ mv roles %{buildroot}/opt/ansible/roles
 /opt/ansible/roles
 
 %changelog
+* Wed Feb 07 2018 David Zager <david.j.zager@gmail.com> 1.1.5-1
+- Bug 1537955 - Add parameter validation task (#23) (ernelson@redhat.com)
+- Bug 1540866 - Use k8s as default cluster (david.j.zager@gmail.com)
+- Added retries for webpage status verification (psturc@redhat.com)
+
 * Fri Jan 19 2018 David Zager <david.j.zager@gmail.com> 1.1.4-1
 - Revert erroneous change to image name (jmontleo@redhat.com)
 
