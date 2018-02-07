@@ -1,4 +1,9 @@
 ---
+- name: Validate Admin User and Password
+  fail:
+    msg: "Mediawiki Admin User and Password cannot be the same value!"
+  when: mediawiki_admin_user == mediawiki_admin_pass
+
 - name: create mediawiki123 endpoint
   k8s_v1_endpoints:
     name: mediawiki123

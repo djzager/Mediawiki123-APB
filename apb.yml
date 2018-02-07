@@ -41,7 +41,7 @@ plans:
       - name: mediawiki_admin_user
         default: admin
         type: string
-        title: Mediawiki Admin User
+        title: Mediawiki Admin User (Cannot be the same value as Admin User Password)
         required: True
       - name: mediawiki_admin_pass
         type: string
