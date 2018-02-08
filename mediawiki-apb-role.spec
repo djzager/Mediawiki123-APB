@@ -12,13 +12,16 @@ Summary:	Ansible Playbook for Mediawiki APB
 License:	ASL 2.0
 URL:		https://github.com/ansibleplaybookbundle/Mediawiki123-APB
 Source0:	https://github.com/ansibleplaybookbundle/Mediawiki123-APB/archive/%{name}-%{version}.tar.gz
-BuildArch:  	noarch
+BuildArch:  noarch
 
 %description
 %{summary}
 
 %prep
 %setup -q -n %{name}-%{version}
+%if !0%{?copr}
+patch -p1 < downstream.patch
+%endif
 
 %install
 mkdir -p %{buildroot}/opt/apb/ %{buildroot}/opt/ansible/
