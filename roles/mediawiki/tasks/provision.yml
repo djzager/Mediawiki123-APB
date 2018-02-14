@@ -95,6 +95,7 @@
     selector:
       app: mediawiki123
       service: mediawiki123
+    strategy_type: Recreate
     spec_template_metadata_labels:
       app: mediawiki123
       service: mediawiki123
