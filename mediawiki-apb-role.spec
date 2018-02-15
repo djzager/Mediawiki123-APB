@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.1.6
+Version:	1.1.7
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -34,6 +34,9 @@ mv roles %{buildroot}/opt/ansible/roles
 /opt/ansible/roles
 
 %changelog
+* Thu Feb 15 2018 David Zager <david.j.zager@gmail.com> 1.1.7-1
+- Bug 154260 - Use Recreate instead of Rolling Strategy (jmontleo@redhat.com)
+
 * Thu Feb 08 2018 Jason Montleon <jmontleo@redhat.com> 1.1.6-1
 - add downstream patch with conditional for easier builds (jmontleo@redhat.com)
 
