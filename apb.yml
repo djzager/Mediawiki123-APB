@@ -48,3 +48,9 @@ plans:
         title: Mediawiki Admin User Password
         required: True
         display_type: password
+      - name: mediawiki_volume_size
+        type: enum
+        default: '1Gi'
+        enum: ['1Gi', '5Gi', '10Gi']
+        title: MediaWiki Volume Size
+        required: true
