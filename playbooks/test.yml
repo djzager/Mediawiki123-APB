@@ -15,7 +15,7 @@
       name: '{{ namespace }}'
   - name: Run the provision role.
     include_role:
-      name: provision-mediawiki123-apb
+      name: provision-mediawiki-apb
   - name: Run the verify role.
     include_role:
-      name: verify-mediawiki123-apb
+      name: verify-mediawiki-apb
