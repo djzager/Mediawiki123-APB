@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.2.2
+Version:	1.2.3
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -34,6 +34,9 @@ mv roles %{buildroot}/opt/ansible/roles
 /opt/ansible/roles
 
 %changelog
+* Wed Apr 25 2018 Jason Montleon <jmontleo@redhat.com> 1.2.3-1
+- Update to remove version specific names (jmontleo@redhat.com)
+
 * Thu Apr 19 2018 David Zager <david.j.zager@gmail.com> 1.2.2-1
 - Bug 1563641 - Specify PV Size (#28) (dzager@redhat.com)
 
