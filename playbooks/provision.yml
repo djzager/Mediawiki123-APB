@@ -1,4 +1,4 @@
-- name: mediawiki123-apb provision
+- name: mediawiki-apb provision
   hosts: localhost
   gather_facts: false
   connection: local

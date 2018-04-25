@@ -1,4 +1,4 @@
-- name: mediawiki123-apb update
+- name: mediawiki-apb update
   hosts: localhost
   gather_facts: false
   connection: local

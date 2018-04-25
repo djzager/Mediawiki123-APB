@@ -1,7 +1,7 @@
 ---
-- name: create mediawiki123 endpoint
+- name: create mediawiki endpoint
   k8s_v1_endpoints:
-    name: mediawiki123
+    name: "{{ app_name }}"
     namespace: '{{ namespace }}'
     subsets:
     - addresses:
@@ -10,36 +10,36 @@
       - name: web
         port: 8080
     labels:
-      app: mediawiki123
-      service: mediawiki123
+      app: "{{ app_name }}"
+      service: "{{ svc_name }}"
     state: present
   register: endpoint
   when: cluster=="kubernetes"
 
-- name: create mediawiki123 route
+- name: create mediawiki route
   openshift_v1_route:
-    name: mediawiki123
+    name: "{{ app_name }}"
     namespace: '{{ namespace }}'
     spec_port_target_port: web
     labels:
-      app: mediawiki123
-      service: mediawiki123
-    to_name: mediawiki123
+      app: "{{ app_name }}"
+      service: "{{ svc_name }}"
+    to_name: "{{ app_name }}"
     state: present
   register: route
   when: cluster=="openshift"
 
 - name: create deployment
   k8s_extensions_v1beta1_deployment:
-    name: mediawiki123
+    name: "{{ app_name }}"
     namespace: '{{ namespace }}'
     labels:
-      app: mediawiki123
-      service: mediawiki123
+      app: "{{ app_name }}"
+      service: "{{ svc_name }}"
     replicas: 1
     spec_template_metadata_labels:
-      app: mediawiki123
-      service: mediawiki123
+      app: "{{ app_name }}"
+      service: "{{ svc_name }}"
     containers:
     - env:
       - name: MEDIAWIKI_DB_SCHEMA
@@ -54,35 +54,35 @@
         value: "{{ mediawiki_admin_pass }}"
       - name: MEDIAWIKI_SITE_SERVER
         value: '{{ endpoint.endpoints.subsets[0].addresses[0].ip }}'
-      image: docker.io/ansibleplaybookbundle/mediawiki123:latest
-      name: mediawiki123
+      image: docker.io/ansibleplaybookbundle/mediawiki:latest
+      name: "{{ app_name }}"
       ports:
       - container_port: 8080
         protocol: TCP
       volume_mounts:
         - mount_path: /persistent
-          name: mediawiki123-volume
+          name: "{{ app_name }}-volume"
     volumes:
-      - name: mediawiki123-volume
+      - name: "{{ app_name }}-volume"
         persistent_volume_claim:
-          claim_name: mediawiki123-pvc
+          claim_name: "{{ app_name }}-pvc"
   when: cluster=="kubernetes"
 
 - name: create deployment config
   openshift_v1_deployment_config:
-    name: mediawiki123
+    name: "{{ app_name }}"
     namespace: '{{ namespace }}'
     labels:
-      app: mediawiki123
-      service: mediawiki123
+      app: "{{ app_name }}"
+      service: "{{ svc_name }}"
     replicas: 1
     selector:
-      app: mediawiki123
-      service: mediawiki123
+      app: "{{ app_name }}"
+      service: "{{ svc_name }}"
     strategy_type: Recreate
     spec_template_metadata_labels:
-      app: mediawiki123
-      service: mediawiki123
+      app: "{{ app_name }}"
+      service: "{{ svc_name }}"
     containers:
     - env:
       - name: MEDIAWIKI_DB_SCHEMA
@@ -97,16 +97,16 @@
         value: "{{ mediawiki_admin_pass }}"
       - name: MEDIAWIKI_SITE_SERVER
         value: '{{ route.route.spec.host }}'
-      image: docker.io/ansibleplaybookbundle/mediawiki123:latest
-      name: mediawiki123
+      image: docker.io/ansibleplaybookbundle/mediawiki:latest
+      name: "{{ app_name }}"
       ports:
       - container_port: 8080
         protocol: TCP
       volume_mounts:
         - mount_path: /persistent
-          name: mediawiki123-volume
+          name: "{{ app_name }}-volume"
     volumes:
-      - name: mediawiki123-volume
+      - name: "{{ app_name }}-volume"
         persistent_volume_claim:
-          claim_name: mediawiki123-pvc
+          claim_name: "{{ app_name }}-pvc"
   when: cluster=="openshift"

@@ -5,8 +5,8 @@ bindable: False
 async: optional
 metadata:
   documentationUrl: https://www.mediawiki.org/wiki/Documentation
-  longDescription: An apb that deploys Mediawiki 1.23
-  dependencies: ['docker.io/ansibleplaybookbundle/mediawiki123:latest']
+  longDescription: An apb that deploys Mediawiki
+  dependencies: ['docker.io/ansibleplaybookbundle/mediawiki:latest']
   displayName: Mediawiki (APB)
   console.openshift.io/iconClass: icon-mediawiki
   providerDisplayName: "Red Hat, Inc."

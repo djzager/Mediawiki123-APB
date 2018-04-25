@@ -1,11 +1,11 @@
 - connection: local
   gather_facts: false
   hosts: localhost
-  name: "Deprovision mediawiki123-apb from {{ cluster }}"
+  name: "Deprovision mediawiki-apb from {{ cluster }}"
   roles:
   - install_python_requirements: false
     role: ansible.kubernetes-modules
   - mediawiki
   vars:
-    namespace: mediawiki123-apb
+    namespace: mediawiki-apb
     action: deprovision

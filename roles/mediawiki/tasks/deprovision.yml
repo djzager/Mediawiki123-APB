@@ -1,27 +1,27 @@
 ---
   - name: Removing endpoint
     k8s_v1_endpoints:
-      name: mediawiki123
+      name: "{{ app_name }}"
       namespace: '{{ namespace }}'
       state: absent
     when: cluster=="kubernetes"
 
   - name: Removing route
     openshift_v1_route:
-      name: mediawiki123
+      name: "{{ app_name }}"
       namespace: '{{ namespace }}'
       state: absent
     when: cluster=="openshift"
 
   - name: Removing pvc
     k8s_v1_persistent_volume_claim:
-      name: mediawiki123-pvc
+      name: "{{ app_name }}-pvc"
       namespace: '{{ namespace }}'
       state: absent
 
   - name: Scaling down deployment
     k8s_extensions_v1beta1_deployment:
-      name: mediawiki123
+      name: "{{ app_name }}"
       namespace: '{{ namespace }}'
       replicas: 0
       state: present
@@ -29,7 +29,7 @@
 
   - name: Scaling down deployment config
     openshift_v1_deployment_config:
-      name: mediawiki123
+      name: "{{ app_name }}"
       namespace: '{{ namespace }}'
       replicas: 0
       state: present
@@ -40,26 +40,26 @@
 
   - name: Removing replication controller
     k8s_v1_replication_controller:
-      name: mediawiki123-1
+      name: "{{ app_name }}-1"
       namespace: '{{ namespace }}'
       state: absent
 
   - name: Removing deployment
     k8s_extensions_v1beta1_deployment:
-      name: mediawiki123
+      name: "{{ app_name }}"
       namespace: '{{ namespace }}'
       state: absent
     when: cluster=="kubernetes"
 
   - name: Removing deployment config
     openshift_v1_deployment_config:
-      name: mediawiki123
+      name: "{{ app_name }}"
       namespace: '{{ namespace }}'
       state: absent
     when: cluster=="openshift"
 
   - name: Removing service
     k8s_v1_service:
-      name: mediawiki123
+      name: "{{ app_name }}"
       namespace: '{{ namespace }}'
       state: absent
