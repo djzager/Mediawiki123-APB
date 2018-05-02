@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.2.3
+Version:	1.2.4
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -34,6 +34,9 @@ mv roles %{buildroot}/opt/ansible/roles
 /opt/ansible/roles
 
 %changelog
+* Wed May 02 2018 Jason Montleon <jmontleo@redhat.com> 1.2.4-1
+- Update downstream.patch (jmontleo@redhat.com)
+
 * Wed Apr 25 2018 Jason Montleon <jmontleo@redhat.com> 1.2.3-1
 - Update to remove version specific names (jmontleo@redhat.com)
 
