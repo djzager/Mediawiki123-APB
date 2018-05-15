@@ -1,0 +1,62 @@
+---
+
+apiVersion: v1
+{% if cluster == 'kubernetes' %}
+kind: Deployment
+{% else %}
+kind: DeploymentConfig
+{% endif %}
+metadata:
+  name: {{ app_name }}
+  namespace: {{ namespace }}
+  labels:
+    app: {{ app_name }}
+    service: {{ app_name }}
+spec:
+  replicas: 1
+{% if cluster == 'kubernetes' %}
+  selector:
+    matchLabels:
+      app: {{ app_name }}
+      service: {{ app_name }}
+{% else %}
+  selector:
+    app: {{ app_name }}
+    service: {{ app_name }}
+{% endif %}
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: {{ app_name }}
+        service: {{ app_name }}
+    spec:
+      containers:
+      - image: {{ app_image }}
+        name: mediawiki
+        env:
+          - name: MEDIAWIKI_DB_SCHEMA
+            value: {{ mediawiki_db_schema }}
+          - name: MEDIAWIKI_SITE_NAME
+            value: {{ mediawiki_site_name }}
+          - name: MEDIAWIKI_SITE_LANG
+            value: {{ mediawiki_site_lang }}
+          - name: MEDIAWIKI_ADMIN_USER
+            value: {{ mediawiki_admin_user }}
+          - name: MEDIAWIKI_ADMIN_PASS
+            value: {{ mediawiki_admin_pass }}
+          - name: MEDIAWIKI_SITE_SERVER
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+        ports:
+          - container_port: 8080
+            protocol: TCP
+        volumeMounts:
+          - name: mediawiki
+            mountPath: /persistent
+      volumes:
+        - name: mediawiki
+          persistent_volume_claim:
+            claim_name: {{ app_name }}

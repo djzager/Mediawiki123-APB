@@ -16,7 +16,8 @@ plans:
     free: True
     metadata:
       displayName: Default
-      longDescription: This plan deploys a single mediawiki instance without a DB
+      longDescription:
+        This plan deploys a single mediawiki instance without a DB
       cost: $0.00
     parameters:
       - name: mediawiki_db_schema
@@ -41,7 +42,7 @@ plans:
       - name: mediawiki_admin_user
         default: admin
         type: string
-        title: Mediawiki Admin User (Cannot be the same value as Admin User Password)
+        title: Mediawiki Admin User (Cannot be same as Admin User Password)
         required: True
       - name: mediawiki_admin_pass
         type: string
