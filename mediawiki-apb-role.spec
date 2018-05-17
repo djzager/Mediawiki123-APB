@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.2.4
+Version:	1.2.5
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -34,6 +34,10 @@ mv defaults tasks templates vars %{buildroot}/opt/ansible/roles/mediawiki-apb
 /opt/ansible/roles
 
 %changelog
+* Thu May 17 2018 David Zager <david.j.zager@gmail.com> 1.2.5-1
+- Bug 1570603: Make mediawiki-apb (de)provision idempotent
+  (david.j.zager@gmail.com)
+
 * Wed May 02 2018 Jason Montleon <jmontleo@redhat.com> 1.2.4-1
 - Update downstream.patch (jmontleo@redhat.com)
 
