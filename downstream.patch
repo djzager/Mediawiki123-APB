@@ -1,44 +1,13 @@
-diff --git a/roles/mediawiki/tasks/provision.yml b/roles/mediawiki/tasks/provision.yml
-index 7b7c7bc..9ff5c57 100644
---- a/roles/mediawiki/tasks/provision.yml
-+++ b/roles/mediawiki/tasks/provision.yml
-@@ -70,7 +70,7 @@
-         value: "{{ mediawiki_admin_pass }}"
-       - name: MEDIAWIKI_SITE_SERVER
-         value: '{{ endpoint.endpoints.subsets[0].addresses[0].ip }}'
--      image: docker.io/ansibleplaybookbundle/mediawiki:latest
-+      image: registry.access.redhat.com/openshift3/mediawiki:latest
-       name: "{{ app_name }}"
-       ports:
-       - container_port: 8080
-@@ -113,7 +113,7 @@
-         value: "{{ mediawiki_admin_pass }}"
-       - name: MEDIAWIKI_SITE_SERVER
-         value: '{{ route.route.spec.host }}'
--      image: docker.io/ansibleplaybookbundle/mediawiki:latest
-+      image: registry.access.redhat.com/openshift3/mediawiki:latest
-       name: "{{ app_name }}"
-       ports:
-       - container_port: 8080
-diff --git a/roles/mediawiki/tasks/update.yml b/roles/mediawiki/tasks/update.yml
-index a5493ca..bfe925b 100644
---- a/roles/mediawiki/tasks/update.yml
-+++ b/roles/mediawiki/tasks/update.yml
-@@ -54,7 +54,7 @@
-         value: "{{ mediawiki_admin_pass }}"
-       - name: MEDIAWIKI_SITE_SERVER
-         value: '{{ endpoint.endpoints.subsets[0].addresses[0].ip }}'
--      image: docker.io/ansibleplaybookbundle/mediawiki:latest
-+      image: registry.access.redhat.com/openshift3/mediawiki:latest
-       name: "{{ app_name }}"
-       ports:
-       - container_port: 8080
-@@ -97,7 +97,7 @@
-         value: "{{ mediawiki_admin_pass }}"
-       - name: MEDIAWIKI_SITE_SERVER
-         value: '{{ route.route.spec.host }}'
--      image: docker.io/ansibleplaybookbundle/mediawiki:latest
-+      image: registry.access.redhat.com/openshift3/mediawiki:latest
-       name: "{{ app_name }}"
-       ports:
-       - container_port: 8080
+diff --git a/defaults/main.yml b/defaults/main.yml
+index e3e4c91..21b7eb5 100644
+--- a/defaults/main.yml
++++ b/defaults/main.yml
+@@ -8,7 +8,7 @@ _apb_service_instance_id: 0
+ cluster: kubernetes
+ 
+ app_name: "mediawiki-{{ _apb_service_instance_id }}"
+-app_image: docker.io/ansibleplaybookbundle/mediawiki:latest
++app_image: registry.access.redhat.com/openshift3/mediawiki:latest
+ namespace: "{{ lookup('env','NAMESPACE') | default('mediawiki', true) }}"
+ 
+ # Mediawiki defaults

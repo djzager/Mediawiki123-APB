@@ -1,0 +1,12 @@
+---
+
+state_map:
+  provision: present
+  update: present
+  deprovision: absent
+state: "{{ state_map[apb_action] }}"
+
+# Whether we are in a cluster or not.
+pod_name: "{{ lookup('env', 'POD_NAME') }}"
+pod_namespace: "{{ lookup('env', 'POD_NAMESPACE') }}"
+in_cluster: "{{ True if (pod_name and pod_namespace) else False }}"
