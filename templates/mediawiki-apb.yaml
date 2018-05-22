@@ -6,6 +6,7 @@ spec:
   clusterServiceClassExternalName: dh-mediawiki-apb
   clusterServicePlanExternalName: default
   parameters:
+    app_name: mediawiki
     mediawiki_db_schema: "mediawiki"
     mediawiki_site_name: "Mediawiki-CI"
     mediawiki_site_lang: "en"
