@@ -10,3 +10,8 @@ state: "{{ state_map[apb_action] }}"
 pod_name: "{{ lookup('env', 'POD_NAME') }}"
 pod_namespace: "{{ lookup('env', 'POD_NAMESPACE') }}"
 in_cluster: "{{ True if (pod_name and pod_namespace) else False }}"
+
+# Ansible 2.5 api versions
+deployment_api_version: v1
+deploymentconfig_api_version: v1
+route_api_version: v1

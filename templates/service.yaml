@@ -12,7 +12,7 @@ spec:
   ports:
     - name: web
       port: 8080
-      target_port: 8080
+      targetPort: 8080
   selector:
     app: {{ app_name }}
     service: {{ app_name }}
