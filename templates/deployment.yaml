@@ -47,10 +47,23 @@ spec:
             value: {{ mediawiki_admin_user }}
           - name: MEDIAWIKI_ADMIN_PASS
             value: {{ mediawiki_admin_pass }}
+{% if cluster == 'kubernetes' %}
           - name: MEDIAWIKI_SITE_SERVER
             valueFrom:
               fieldRef:
                 fieldPath: status.podIP
+{% else %}
+          - name: MEDIAWIKI_SITE_SERVER
+            value: {{
+              lookup(
+                'openshift',
+                api_version=route_api_version,
+                kind='Route',
+                namespace=namespace,
+                resource_name=app_name
+              ) | json_query("spec.host")
+            }}
+{% endif %}
         ports:
           - containerPort: 8080
             protocol: TCP
