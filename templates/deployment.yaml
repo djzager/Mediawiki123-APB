@@ -47,7 +47,12 @@ spec:
             value: {{ mediawiki_admin_user }}
           - name: MEDIAWIKI_ADMIN_PASS
             value: {{ mediawiki_admin_pass }}
-{% if cluster == 'openshift' %}
+{% if cluster == 'kubernetes' %}
+          - name: MEDIAWIKI_SITE_SERVER
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+{% else %}
           - name: MEDIAWIKI_SITE_SERVER
             value: {{
               lookup(
