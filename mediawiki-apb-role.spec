@@ -5,7 +5,7 @@
 %endif
 
 Name: 		mediawiki-apb-role
-Version:	1.2.7
+Version:	1.2.8
 Release:	1%{build_timestamp}%{?dist}
 Summary:	Ansible Playbook for Mediawiki APB
 
@@ -34,6 +34,9 @@ mv defaults tasks templates vars %{buildroot}/opt/ansible/roles/mediawiki-apb
 /opt/ansible/roles
 
 %changelog
+* Mon Jun 04 2018 David Zager <david.j.zager@gmail.com> 1.2.8-1
+- fix deprovision when username and password match (#35) (jmontleo@redhat.com)
+
 * Wed May 30 2018 David Zager <david.j.zager@gmail.com> 1.2.7-1
 - Bug 1583543 - Use route host in openshift (#34) (dzager@redhat.com)
 
