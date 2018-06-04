@@ -21,7 +21,9 @@
 - name: Validate Admin User and Password
   fail:
     msg: "Mediawiki Admin User and Password cannot be the same value!"
-  when: mediawiki_admin_user == mediawiki_admin_pass
+  when:
+  - mediawiki_admin_user == mediawiki_admin_pass
+  - apb_action == "provision"
 
 - name: "Set mediawiki objects state={{ state }}"
   k8s_raw:
